@@ -20,14 +20,14 @@ def dfs (row,col):
         for i in [-1,1]:
             next = col + i
             # 행 범위 확인 and 다음꺼 check
-            if 0<next<M and graph[row][next] =="-":
+            if 0<next and next <M and graph[row][next] =="-":
                 dfs(row,next)
 
     elif cur == '|':
         # 상하
         for idx in (-1, 1):
             next = row + idx
-            if 0 <= next < N and graph[next][col] == '|':
+            if 0 < next and next < N and graph[next][col] == '|':
                 dfs(next, col)
 
 count = 0
