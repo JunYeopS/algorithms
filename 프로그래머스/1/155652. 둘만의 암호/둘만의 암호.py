@@ -9,19 +9,9 @@ def solution(s, skip, index):
         if i in alphabet:
             alphabet.remove(i)
             
-    print(alphabet)
-    
-    if len(alphabet)>1:
-        for i in range(len(s)):
-            offset = alphabet.index(s[i])
-            print(offset)
-            if offset + index >= len(alphabet):
-                pos =  (offset + index) % len(alphabet) 
-                s[i] = alphabet[pos]
-            else:
-                s[i] = alphabet[offset+index]
-        answer = ("".join(s))
-    else:
-        answer = ""
+    for i in range(len(s)):
+        s[i] = alphabet[(alphabet.index(s[i]) + index) % len(alphabet)]
+
+    answer = ("".join(s))
                 
     return answer
